@@ -2,7 +2,7 @@
 
 A selective public-facing portfolio of problem-solving and project work.
 
-- **Owner:** [@athbgs](https://github.com/athbgs)
+- **Owner:** [@athaillahbagas](https://github.com/athaillahbagas)
 - **Format:** Responsive static site in [`docs/`](docs/), ready for GitHub Pages.
 - **Status:** Public landing page only. **No unverified case studies are published.**
 
