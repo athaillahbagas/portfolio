@@ -40,7 +40,7 @@
   <p>The design question: <strong>how can a small tool make financial scenarios easier to explore without hiding the assumptions?</strong></p>
 
   <h2>Constraints and approach</h2>
-  <p>The application runs in the browser without an account, a backend, or external libraries. A tabbed layout separates the five tasks; each calculator collects a small set of inputs and presents a result breakdown in the same page.</p>
+  <p>The application runs in the browser without an account, a backend, or external libraries. A tabbed layout separates the five tasks; each calculator collects a small set of inputs and presents a result breakdown in the same page. After an input changes, that calculator’s previous result is cleared until recalculation.</p>
   <p>I use the prototype to examine how input choices change an outcome, and whether the explanation makes that relationship clear.</p>
   <p>The loan and savings models use a nominal annual rate divided by 12, with payments or deposits at month-end. These conventions are stated beside the relevant inputs.</p>
   <ul>
@@ -60,7 +60,7 @@
   <p>The calculators share an interface, but each needs its own assumptions, boundary checks, and explanation.</p>
 
   <h2>Verification and outcome</h2>
-  <p>All <a href="https://github.com/athaillahbagas/kalkufinance/blob/main/test-calculations.cjs">25 automated checks</a> passed, covering reference calculations, zero-interest cases, tax brackets, invalid inputs, and tab and error handling. Browser checks exercised all five calculators and confirmed that a blank required field produces an error and receives focus.</p>
+  <p>All <a href="https://github.com/athaillahbagas/kalkufinance/actions/runs/40734254555">27 automated checks</a> passed, covering reference calculations, zero-interest cases, tax brackets, invalid inputs, tab and error handling, and edits to numeric fields or tax status. The checks run automatically on pull requests and pushes to main. Browser checks exercised all five calculators and confirmed that a blank required field produces an error and receives focus.</p>
   <ul>
     <li>A Rp12 million loan over 12 months at 0% interest returns a Rp1 million monthly payment.</li>
     <li>A Rp10 million monthly salary, TK/0 status, and no allowances or entered contributions returns Rp3 million annual tax and a Rp250,000 monthly average.</li>
