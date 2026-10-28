@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Kalku Finance: a case study of a browser-based prototype for exploring five financial scenarios, its assumptions, trade-offs, and limitations.">
+  <meta name="theme-color" content="#0d131a">
+  <title>Kalku Finance — Atha</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="wordmark" href="../index.html" aria-label="Atha homepage">atha<span>.</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#method">Approach</a>
+      <a class="button-small" href="https://github.com/athaillahbagas" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+<main class="case wrap">
+  <a class="back" href="../index.html#work">← Back to selected work</a>
+  <h1>Kalku Finance</h1>
+  <p class="lead">Exploring financial scenarios through a small, inspectable prototype.</p>
+  <p>Five calculators bring investment returns, loan repayments, retirement saving, a simplified tax estimate, and compound growth into one browser-based tool.</p>
+  <div class="actions">
+    <a class="button primary" href="https://athaillahbagas.github.io/kalkufinance/" target="_blank" rel="noopener noreferrer">Open the prototype <span aria-hidden="true">↗</span></a>
+    <a class="button" href="https://github.com/athaillahbagas/kalkufinance" target="_blank" rel="noopener noreferrer">View the repository <span aria-hidden="true">↗</span></a>
+  </div>
+  <figure class="case-figure">
+    <img src="../assets/kalkufinance-preview.jpg" width="1512" height="1212" alt="Kalku Finance prototype showing its calculator tabs and investment return inputs." loading="lazy">
+    <figcaption>The public prototype uses Indonesian labels and rupiah-denominated inputs and results.</figcaption>
+  </figure>
+
+  <h2>Project scope</h2>
+  <p>I maintain Kalku Finance as a public learning prototype: a static HTML interface with a separate JavaScript calculation file. The scope is financial scenario exploration, with transparent assumptions and inspectable calculations.</p>
+
+  <h2>The problem</h2>
+  <p>A financial result depends on choices that are easy to overlook: whether fees belong in the investment base, when a savings contribution is made, or how an annual rate becomes a monthly rate. A calculator can produce a precise-looking number while leaving those choices unclear.</p>
+  <p>The design question: <strong>how can a small tool make financial scenarios easier to explore without hiding the assumptions?</strong></p>
+
+  <h2>Constraints and approach</h2>
+  <p>The application runs in the browser without an account, a backend, or external libraries. A tabbed layout separates the five tasks; each calculator collects a small set of inputs and presents a result breakdown in the same page.</p>
+  <p>I use the prototype to examine how input choices change an outcome, and whether the explanation makes that relationship clear.</p>
+  <p>The loan and savings models use a nominal annual rate divided by 12, with payments or deposits at month-end. These conventions are stated beside the relevant inputs.</p>
+  <ul>
+    <li><strong>Investment return:</strong> compares the ending value with initial capital and entered fees. The investment base includes those fees.</li>
+    <li><strong>Loan repayment:</strong> estimates a fixed monthly payment from a principal amount, annual interest rate, and term.</li>
+    <li><strong>Retirement saving:</strong> estimates the regular savings needed to reach an entered target, using current savings, a time horizon, and an assumed return.</li>
+    <li><strong>Tax estimate:</strong> illustrates a simplified annual income-tax calculation from salary, allowances, deductions, and family status.</li>
+    <li><strong>Compound growth:</strong> projects a starting balance and regular monthly deposits under a constant return assumption.</li>
+  </ul>
+
+  <h2>Trade-offs</h2>
+  <h3>Easy to run, limited persistence</h3>
+  <p>Static files make the prototype easy to inspect and open locally without a build process. Saved scenarios, accounts, and a history of comparisons remain outside its scope.</p>
+  <h3>Simple scenarios, limited realism</h3>
+  <p>Fixed rates and regular contributions keep the calculations understandable. They do not capture fluctuating returns, changing income, missed payments, or every product-specific fee.</p>
+  <h3>Broad coverage, separate models</h3>
+  <p>The calculators share an interface, but each needs its own assumptions, boundary checks, and explanation.</p>
+
+  <h2>Verification and outcome</h2>
+  <p>All <a href="https://github.com/athaillahbagas/kalkufinance/blob/main/test-calculations.cjs">25 automated checks</a> passed, covering reference calculations, zero-interest cases, tax brackets, invalid inputs, and tab and error handling. Browser checks exercised all five calculators and confirmed that a blank required field produces an error and receives focus.</p>
+  <ul>
+    <li>A Rp12 million loan over 12 months at 0% interest returns a Rp1 million monthly payment.</li>
+    <li>A Rp10 million monthly salary, TK/0 status, and no allowances or entered contributions returns Rp3 million annual tax and a Rp250,000 monthly average.</li>
+  </ul>
+  <p>The outcome is a public prototype; user adoption, decision quality, and time saved have not been measured.</p>
+
+  <h2>Limits</h2>
+  <p>The results describe scenarios under entered assumptions; they do not forecast market performance or model inflation. The tax view assumes one employer and 12 identical monthly pay periods. Its monthly average is annual tax divided by 12, not actual TER payroll withholding. Full assumptions and source links are documented in the <a href="https://github.com/athaillahbagas/kalkufinance#assumptions-and-limits">repository</a>.</p>
+
+  <h2>Next steps</h2>
+  <ul>
+    <li>Add side-by-side scenario comparisons to show how a change in one assumption affects the result.</li>
+    <li>Expand reference calculations and boundary checks as the models change.</li>
+    <li>Test whether people can explain the assumptions behind a result, then use that feedback to improve the interface.</li>
+  </ul>
+  <p>My takeaway is to treat the explanation as part of the tool: what a number assumes matters as much as the number itself.</p>
+</main>
+<footer class="site-footer"><div class="wrap footer-flex"><div>© Atha · Selected work and case studies</div><div><a href="../index.html#work">Back to selected work ↗</a></div></div></footer>
+</body>
+</html>
