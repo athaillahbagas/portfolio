@@ -15,6 +15,18 @@
 
 The website has no build dependencies. Check deployment status under Actions and/or Settings → Pages.
 
+## Preview before publishing
+
+From the repository root, serve the actual Pages folder:
+
+```sh
+python3 -m http.server 8000 --directory docs
+```
+
+Open `http://localhost:8000/` and follow the homepage link to each published case study. Check image loading, relative navigation links, readable mobile-width text, and keyboard access to links. Stop the server with Ctrl+C.
+
+Serving `docs/` as the root mirrors this repository's Pages folder layout. Files under `templates/` and the editorial guides stay outside that served folder. A local preview does not verify the live deployment; recheck the published URL after deployment finishes.
+
 ## Updating a case study
 
 - Complete the narrative in `templates/CASE-STUDY.md` privately first.
